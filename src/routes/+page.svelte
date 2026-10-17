@@ -35,9 +35,7 @@
         <div
             class="mt-8 grid grid-cols-1 gap-8 min-[400px]:grid-cols-2 sm:flex sm:flex-wrap sm:gap-x-16"
         >
-            <div
-                class="flex flex-col motion-safe:animate-(--reveal) motion-safe:[animation-delay:40ms]"
-            >
+            <div class="flex flex-col">
                 <h2
                     class="w-fit bg-linear-to-r from-[#8b21d4] to-[#c92d59] bg-clip-text text-[1.375rem] leading-7 font-normal text-transparent"
                 >
@@ -61,9 +59,7 @@
                     >
                 </div>
             </div>
-            <div
-                class="flex flex-col motion-safe:animate-(--reveal) motion-safe:[animation-delay:40ms]"
-            >
+            <div class="flex flex-col">
                 <h2
                     class="w-fit bg-linear-to-r from-[#b85b00] to-[#c91e40] bg-clip-text text-[1.375rem] leading-7 font-normal text-transparent"
                 >

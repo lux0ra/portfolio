@@ -19,7 +19,13 @@
     <div
         class="flex flex-col items-start gap-3 text-[14px] sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-6"
     >
-        <p>Designed &amp; developed with ❤️ by me!</p>
+        <p>
+            Designed &amp; developed with ❤️ by <a
+                href="/info"
+                class="rounded-sm transition-colors duration-200 hover:text-blue-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 motion-reduce:transition-none"
+                >me!</a
+            >
+        </p>
         <button
             type="button"
             aria-label="Available for work — celebrate with confetti"
