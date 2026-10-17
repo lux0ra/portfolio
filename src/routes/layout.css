@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+    --font-sans:
+        -apple-system, BlinkMacSystemFont, "Inter Variable", sans-serif;
+}
+
+:root {
+    font-family: var(--font-sans);
+    color: #171717;
+    background: #fff;
+    --reveal: reveal 600ms ease-out both;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
