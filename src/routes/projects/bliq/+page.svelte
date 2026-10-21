@@ -135,14 +135,14 @@
                 >
                     Bliq
                 </h1>
-                <a
+                <!-- <a
                     href="https://github.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="text-xs text-neutral-500 dark:text-neutral-400 no-underline transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
                 >
                     GitHub ↗
-                </a>
+                </a> -->
             </div>
             <span
                 class="text-xs font-normal text-amber-600 dark:text-amber-400"
