@@ -68,6 +68,20 @@
             </div>
             <div class="flex flex-col">
                 <h2
+                    class="w-fit bg-linear-to-r from-[#7c3aed] to-[#2563eb] dark:from-[#a78bfa] dark:to-[#60a5fa] bg-clip-text text-[1.375rem] leading-7 font-normal text-transparent"
+                >
+                    About me
+                </h2>
+                <div class="mt-2 flex flex-col gap-2 text-base leading-6">
+                    <a
+                        href="/projects"
+                        class="w-fit rounded-sm no-underline transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:text-blue-500 dark:focus-visible:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
+                        >Projects</a
+                    >
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <h2
                     class="w-fit bg-linear-to-r from-[#b85b00] to-[#c91e40] dark:from-[#fb923c] dark:to-[#ff5e82] bg-clip-text text-[1.375rem] leading-7 font-normal text-transparent"
                 >
                     Donate
