@@ -22,7 +22,7 @@
             security:
                 "Ephemeral responses, zero private key access, user permission checks",
             description:
-                "Receives slash commands (/tip, /balance) and interaction clicks. Formats the request, generates an idempotency key, and forwards payload to the Fastify API.",
+                "Receives slash commands (/profile, /withdraw) and interaction clicks. Formats the request, generates an idempotency key, and forwards payload to the Fastify API.",
         },
         {
             id: "api",
