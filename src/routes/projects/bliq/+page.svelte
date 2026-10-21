@@ -301,7 +301,7 @@
 
     <section class="flex flex-col gap-5">
         <div
-            class="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between"
+            class="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between"
         >
             <div>
                 <h2
@@ -316,11 +316,11 @@
             </div>
 
             <div
-                class="flex rounded-md border border-neutral-200 dark:border-neutral-800 p-0.5 text-xs"
+                class="grid grid-cols-2 w-full sm:w-auto rounded-md border border-neutral-200 dark:border-neutral-800 p-0.5 text-xs"
             >
                 <button
                     type="button"
-                    class={`cursor-pointer rounded px-3 py-1 transition-colors duration-150 ${
+                    class={`cursor-pointer rounded px-3 py-1.5 sm:py-1 text-center transition-colors duration-150 ${
                         activeFlow === "transfer"
                             ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 font-medium"
                             : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100"
@@ -331,7 +331,7 @@
                 </button>
                 <button
                     type="button"
-                    class={`cursor-pointer rounded px-3 py-1 transition-colors duration-150 ${
+                    class={`cursor-pointer rounded px-3 py-1.5 sm:py-1 text-center transition-colors duration-150 ${
                         activeFlow === "deposit"
                             ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 font-medium"
                             : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100"
@@ -395,7 +395,7 @@
                         <span
                             class="font-mono text-xs text-blue-600 dark:text-blue-400"
                         >
-                            SELECTED COMPONENT
+                            NODE
                         </span>
                         <span class="text-neutral-300 dark:text-neutral-700"
                             >/</span
@@ -403,7 +403,7 @@
                         <h4
                             class="text-sm font-semibold text-neutral-900 dark:text-neutral-100"
                         >
-                            {activeNode.label} ({activeNode.sublabel})
+                            {activeNode.label}
                         </h4>
                     </div>
                     <span
