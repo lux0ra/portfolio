@@ -16,7 +16,7 @@
 </script>
 
 <footer
-    class={`w-full border-t border-neutral-300 dark:border-[#30363D] pt-4 ${className}`}
+    class={`w-full border-t border-neutral-300 dark:border-neutral-800 pt-4 ${className}`}
 >
     <div
         class="flex flex-col items-start gap-3 text-[14px] sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-6"
@@ -31,7 +31,7 @@
         <button
             type="button"
             aria-label="Available for work — celebrate with confetti"
-            class="flex cursor-pointer items-center gap-2 rounded-sm text-neutral-500 dark:text-[#8B949E] transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
+            class="flex cursor-pointer items-center gap-2 rounded-sm text-neutral-500 dark:text-neutral-400 transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
             onclick={celebrate}
         >
             <span

@@ -5,7 +5,7 @@
 <main class="w-full py-8">
     <h1 class="text-5xl font-semibold">{page.status}</h1>
 
-    <p class="mt-4 text-base leading-6 text-neutral-600 dark:text-[#8B949E]">
+    <p class="mt-4 text-base leading-6 text-neutral-600 dark:text-neutral-400">
         {page.status === 404
             ? "This page doesn't exist."
             : "Something went wrong."}
