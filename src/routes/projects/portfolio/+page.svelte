@@ -14,11 +14,21 @@
 
     <header class="flex flex-col gap-3">
         <div class="flex flex-wrap items-baseline justify-between gap-3">
-            <h1
-                class="w-fit bg-linear-to-r from-[#7c3aed] to-[#2563eb] dark:from-[#a78bfa] dark:to-[#60a5fa] bg-clip-text text-3xl sm:text-4xl font-normal text-transparent"
-            >
-                Portfolio
-            </h1>
+            <div class="flex flex-wrap items-baseline gap-3">
+                <h1
+                    class="w-fit bg-linear-to-r from-[#7c3aed] to-[#2563eb] dark:from-[#a78bfa] dark:to-[#60a5fa] bg-clip-text text-3xl sm:text-4xl font-normal text-transparent"
+                >
+                    Portfolio
+                </h1>
+                <a
+                    href="https://github.com/lux0ra/portfolio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs text-neutral-500 dark:text-neutral-400 no-underline transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
+                >
+                    GitHub ↗
+                </a>
+            </div>
             <span
                 class="text-xs font-normal text-neutral-500 dark:text-neutral-400"
             >
