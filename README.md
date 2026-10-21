@@ -20,6 +20,6 @@ My personal portfolio website, built with modern web technologies.
 
 ---
 
-© 2026 lux0ra. All rights reserved.
+© 2026 luxora. All rights reserved.
 
 Source code and original design may not be reproduced or redistributed without permission, except where permitted by law or applicable third-party licenses.

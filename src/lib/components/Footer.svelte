@@ -22,10 +22,11 @@
         class="flex flex-col items-start gap-3 text-[14px] sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-6"
     >
         <p>
-            Designed &amp; developed with ❤️ by <a
+            <a
                 href="/info"
                 class="rounded-sm transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
-                >me!</a
+                >&copy; 2026 luxora &middot; Designed with &hearts;&#xfe0f; by
+                me!</a
             >
         </p>
         <button
