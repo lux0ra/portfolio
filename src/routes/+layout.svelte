@@ -10,8 +10,8 @@
     let { children }: LayoutProps = $props();
 
     const titles = [
-        "luxora.exe is vibing",
-        "I LOVE ALISA!!",
+        "luxora.exe is vibing (vibecoding)",
+        "Я люблю Алису!!",
         "404: sleep not found",
         "just one more commit...",
     ];
