@@ -15,21 +15,23 @@
     }
 </script>
 
-<footer class={`w-full border-t border-neutral-300 pt-4 ${className}`}>
+<footer
+    class={`w-full border-t border-neutral-300 dark:border-[#30363D] pt-4 ${className}`}
+>
     <div
         class="flex flex-col items-start gap-3 text-[14px] sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-6"
     >
         <p>
             Designed &amp; developed with ❤️ by <a
                 href="/info"
-                class="rounded-sm transition-colors duration-200 hover:text-blue-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 motion-reduce:transition-none"
+                class="rounded-sm transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
                 >me!</a
             >
         </p>
         <button
             type="button"
             aria-label="Available for work — celebrate with confetti"
-            class="flex cursor-pointer items-center gap-2 rounded-sm text-neutral-500 transition-colors duration-200 hover:text-blue-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 motion-reduce:transition-none"
+            class="flex cursor-pointer items-center gap-2 rounded-sm text-neutral-500 dark:text-[#8B949E] transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
             onclick={celebrate}
         >
             <span

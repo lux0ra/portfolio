@@ -11,8 +11,31 @@
 :root {
     font-family: var(--font-sans);
     color: #171717;
-    background: #fff;
+    background-color: #fff;
+    color-scheme: light dark;
     --reveal: reveal 600ms ease-out both;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color: #f0f6fc;
+        background-color: #000000;
+    }
+}
+
+html,
+body {
+    min-height: 100%;
+    background-color: #fff;
+    color: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+    html,
+    body {
+        background-color: #000000;
+        color: #f0f6fc;
+    }
 }
 
 @keyframes reveal {
