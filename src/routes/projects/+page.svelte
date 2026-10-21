@@ -22,6 +22,47 @@
                 <h2
                     class="text-lg font-medium text-neutral-900 dark:text-neutral-100"
                 >
+                    Bliq
+                </h2>
+                <span
+                    class="text-xs text-amber-600 dark:text-amber-400 font-normal"
+                    >In development</span
+                >
+            </div>
+            <p
+                class="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
+            >
+                Custodial Gram crypto wallet in Discord with TON blockchain
+                integration.
+            </p>
+            <div
+                class="mt-4 flex flex-wrap gap-x-2 gap-y-1 text-xs text-neutral-500 dark:text-neutral-400"
+            >
+                <span>TypeScript</span>
+                <span>•</span>
+                <span>SvelteKit</span>
+                <span>•</span>
+                <span>Fastify</span>
+                <span>•</span>
+                <span>DrizzleORM</span>
+                <span>•</span>
+                <span>PostgreSQL</span>
+                <span>•</span>
+                <span>Docker</span>
+                <span>•</span>
+                <span>Discord.js</span>
+                <span>•</span>
+                <span>TON</span>
+            </div>
+        </div>
+
+        <div
+            class="group rounded-md border border-neutral-200 dark:border-neutral-800 p-5 transition-colors duration-200 hover:border-neutral-400 dark:hover:border-neutral-700"
+        >
+            <div class="flex items-baseline justify-between gap-2">
+                <h2
+                    class="text-lg font-medium text-neutral-900 dark:text-neutral-100"
+                >
                     Portfolio
                 </h2>
                 <span class="text-xs text-neutral-500 dark:text-neutral-400"
@@ -35,18 +76,20 @@
                 on Cloudflare Workers.
             </p>
             <div
-                class="mt-4 flex gap-2 text-xs text-neutral-500 dark:text-neutral-400"
+                class="mt-4 flex flex-wrap gap-x-2 gap-y-1 text-xs text-neutral-500 dark:text-neutral-400"
             >
+                <span>TypeScript</span>
+                <span>•</span>
                 <span>SvelteKit</span>
                 <span>•</span>
                 <span>Tailwind</span>
                 <span>•</span>
-                <span>Cloudflare</span>
+                <span>Cloudflare Workers</span>
             </div>
         </div>
 
         <div
-            class="flex flex-col items-center justify-center rounded-md border border-dashed border-neutral-300 dark:border-neutral-800 p-5 text-center text-sm text-neutral-500 dark:text-neutral-400"
+            class="flex flex-col items-center justify-center rounded-md border border-dashed border-neutral-300 dark:border-neutral-800 p-5 text-center text-sm text-neutral-500 dark:text-neutral-400 sm:col-span-2"
         >
             <p>More projects coming soon...</p>
         </div>
