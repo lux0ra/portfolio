@@ -21,7 +21,6 @@
     let entrance: Animation | undefined;
 
     afterNavigate(({ from, to }) => {
-        // Hash and query changes should not replay the page entrance.
         if (from?.url.pathname === to?.url.pathname) return;
         entrance?.cancel();
         if (

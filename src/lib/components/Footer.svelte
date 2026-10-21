@@ -34,10 +34,6 @@
             class="flex cursor-pointer items-center gap-2 rounded-sm text-neutral-500 dark:text-neutral-400 transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
             onclick={celebrate}
         >
-            <span
-                class="size-2 shrink-0 rounded-full bg-emerald-500"
-                aria-hidden="true"
-            ></span>
             Available for work
         </button>
     </div>

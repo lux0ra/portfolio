@@ -15,15 +15,23 @@
     </div>
 
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div
-            class="group rounded-md border border-neutral-200 dark:border-neutral-800 p-5 transition-colors duration-200 hover:border-neutral-400 dark:hover:border-neutral-700"
+        <a
+            href="/projects/bliq"
+            class="group block rounded-md border border-neutral-200 dark:border-neutral-800 p-5 no-underline transition-colors duration-200 hover:border-neutral-400 dark:hover:border-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
         >
             <div class="flex items-baseline justify-between gap-2">
-                <h2
-                    class="text-lg font-medium text-neutral-900 dark:text-neutral-100"
-                >
-                    Bliq
-                </h2>
+                <div class="flex items-center gap-2">
+                    <h2
+                        class="text-lg font-medium text-neutral-900 dark:text-neutral-100 transition-colors duration-200 group-hover:text-blue-500 dark:group-hover:text-blue-400"
+                    >
+                        Bliq
+                    </h2>
+                    <span
+                        aria-hidden="true"
+                        class="text-sm text-neutral-400 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transform-none"
+                        >→</span
+                    >
+                </div>
                 <span
                     class="text-xs text-amber-600 dark:text-amber-400 font-normal"
                     >In development</span
@@ -54,17 +62,25 @@
                 <span>•</span>
                 <span>TON</span>
             </div>
-        </div>
+        </a>
 
-        <div
-            class="group rounded-md border border-neutral-200 dark:border-neutral-800 p-5 transition-colors duration-200 hover:border-neutral-400 dark:hover:border-neutral-700"
+        <a
+            href="/projects/portfolio"
+            class="group block rounded-md border border-neutral-200 dark:border-neutral-800 p-5 no-underline transition-colors duration-200 hover:border-neutral-400 dark:hover:border-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
         >
             <div class="flex items-baseline justify-between gap-2">
-                <h2
-                    class="text-lg font-medium text-neutral-900 dark:text-neutral-100"
-                >
-                    Portfolio
-                </h2>
+                <div class="flex items-center gap-2">
+                    <h2
+                        class="text-lg font-medium text-neutral-900 dark:text-neutral-100 transition-colors duration-200 group-hover:text-blue-500 dark:group-hover:text-blue-400"
+                    >
+                        Portfolio
+                    </h2>
+                    <span
+                        aria-hidden="true"
+                        class="text-sm text-neutral-400 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transform-none"
+                        >→</span
+                    >
+                </div>
                 <span class="text-xs text-neutral-500 dark:text-neutral-400"
                     >2026</span
                 >
@@ -86,7 +102,7 @@
                 <span>•</span>
                 <span>Cloudflare Workers</span>
             </div>
-        </div>
+        </a>
 
         <div
             class="flex flex-col items-center justify-center rounded-md border border-dashed border-neutral-300 dark:border-neutral-800 p-5 text-center text-sm text-neutral-500 dark:text-neutral-400 sm:col-span-2"

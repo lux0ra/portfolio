@@ -6,9 +6,7 @@
     <nav class="flex w-full flex-wrap items-center justify-between gap-4">
         <h1 class="text-[1.0625rem] leading-5.5[1 375rem] font-normal">
             <a
-                href="https://www.youtube.com/watch?v=ALIzKOQLolk"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/"
                 class="rounded-sm no-underline transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400"
                 >luxora</a
             >

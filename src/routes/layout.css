@@ -14,12 +14,16 @@
     background-color: #fff;
     color-scheme: light dark;
     --reveal: reveal 600ms ease-out both;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         color: var(--color-neutral-100, #f5f5f5);
         background-color: #000000;
+        scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
     }
 }
 
@@ -35,6 +39,34 @@ body {
     body {
         background-color: #000000;
         color: var(--color-neutral-100, #f5f5f5);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+@media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.18);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.35);
     }
 }
 
