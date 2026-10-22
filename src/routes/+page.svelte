@@ -46,9 +46,17 @@
                 <h2
                     class="w-fit bg-linear-to-r from-[#8b21d4] to-[#c92d59] dark:from-[#b357f7] dark:to-[#ff5e82] bg-clip-text text-[1.375rem] leading-7 font-normal text-transparent"
                 >
-                    Contact me
+                    Links
                 </h2>
                 <div class="mt-2 flex flex-col gap-2 text-base leading-6">
+                    <a
+                        href="https://discord.com/users/648181203257655296"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Discord: @lux0ra"
+                        class="w-fit rounded-sm no-underline transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:text-blue-500 dark:focus-visible:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
+                        >Discord (@lux0ra)</a
+                    >
                     <a
                         href="https://t.me/lux0ra"
                         target="_blank"
@@ -57,12 +65,11 @@
                         >Telegram</a
                     >
                     <a
-                        href="https://discord.com/users/648181203257655296"
+                        href="https://github.com/lux0ra"
                         target="_blank"
                         rel="noopener noreferrer"
-                        title="Discord: @lux0ra"
                         class="w-fit rounded-sm no-underline transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:text-blue-500 dark:focus-visible:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
-                        >Discord (@lux0ra)</a
+                        >Github</a
                     >
                 </div>
             </div>
