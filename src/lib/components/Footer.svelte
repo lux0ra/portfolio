@@ -23,7 +23,7 @@
     >
         <p>
             <a
-                href="/info"
+                href="/license"
                 class="rounded-sm transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
                 >&copy; 2026 luxora &middot; Designed with &hearts;&#xfe0f; by
                 me!</a
