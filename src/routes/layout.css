@@ -1,11 +1,10 @@
 @import "tailwindcss";
-@import "@fontsource-variable/inter";
+@import "@fontsource-variable/geist";
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
 @theme {
-    --font-sans:
-        -apple-system, BlinkMacSystemFont, "Inter Variable", sans-serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Geist", sans-serif;
 }
 
 :root {
