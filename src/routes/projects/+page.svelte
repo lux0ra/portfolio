@@ -1,11 +1,20 @@
-<svelte:head>
-    <title>Projects — luxora</title>
-</svelte:head>
+<script lang="ts">
+    import PageMeta from "#lib/components/PageMeta.svelte";
+    import { projects } from "#lib/data/projects.ts";
+    import Link from "#lib/components/Link.svelte";
+
+    let revealed = $state(false);
+</script>
+
+<PageMeta
+    title="Projects — luxora"
+    description="Explore luxora's projects, from a Discord crypto wallet to this SvelteKit portfolio."
+/>
 
 <main class="flex w-full min-w-0 flex-col gap-8 py-4 sm:py-0">
     <div class="flex flex-col gap-2">
         <h1
-            class="w-fit bg-linear-to-r from-[#7c3aed] to-[#2563eb] dark:from-[#a78bfa] dark:to-[#60a5fa] bg-clip-text text-3xl sm:text-4xl font-normal text-transparent"
+            class="w-fit bg-linear-to-r from-[#7c3aed] to-[#2563eb] bg-clip-text text-3xl font-normal text-transparent sm:text-4xl dark:from-[#a78bfa] dark:to-[#60a5fa]"
         >
             Projects
         </h1>
@@ -15,108 +24,68 @@
     </div>
 
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <a
-            href="/projects/bliq"
-            class="group block rounded-md border border-neutral-200 dark:border-neutral-800 p-5 no-underline transition-colors duration-200 hover:border-neutral-400 dark:hover:border-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
-        >
-            <div class="flex items-baseline justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <h2
-                        class="text-lg font-medium text-neutral-900 dark:text-neutral-100 transition-colors duration-200 group-hover:text-blue-500 dark:group-hover:text-blue-400"
-                    >
-                        Bliq
-                    </h2>
+        {#each projects as project (project.slug)}
+            <!-- eslint-disable svelte/no-navigation-without-resolve -->
+            <a
+                href={`/projects/${project.slug}`}
+                class="group block rounded-md border border-neutral-200 p-5 no-underline focus-ring transition-colors duration-200 hover:border-neutral-400 motion-reduce:transition-none dark:border-neutral-800 dark:hover:border-neutral-700"
+            >
+                <div class="flex items-baseline justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                        <h2
+                            class="text-lg font-medium text-neutral-900 transition-colors duration-200 group-hover:text-blue-500 dark:text-neutral-100 dark:group-hover:text-blue-400"
+                        >
+                            {project.name}
+                        </h2>
+                        <span
+                            aria-hidden="true"
+                            class="text-sm text-neutral-400 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transform-none"
+                            >→</span
+                        >
+                    </div>
                     <span
-                        aria-hidden="true"
-                        class="text-sm text-neutral-400 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transform-none"
-                        >→</span
+                        class={project.status
+                            ? "text-xs font-normal text-amber-600 dark:text-amber-400"
+                            : "text-xs text-neutral-500 dark:text-neutral-400"}
+                        >{project.status ?? project.year}</span
                     >
                 </div>
-                <span
-                    class="text-xs text-amber-600 dark:text-amber-400 font-normal"
-                    >In development</span
+                <p
+                    class="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
                 >
-            </div>
-            <p
-                class="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
-            >
-                Custodial Gram crypto wallet in Discord with TON blockchain
-                integration.
-            </p>
-            <div
-                class="mt-4 flex flex-wrap gap-x-2 gap-y-1 text-xs text-neutral-500 dark:text-neutral-400"
-            >
-                <span>TypeScript</span>
-                <span>•</span>
-                <span>SvelteKit</span>
-                <span>•</span>
-                <span>Fastify</span>
-                <span>•</span>
-                <span>DrizzleORM</span>
-                <span>•</span>
-                <span>PostgreSQL</span>
-                <span>•</span>
-                <span>Docker</span>
-                <span>•</span>
-                <span>Discord.js</span>
-                <span>•</span>
-                <span>TON</span>
-            </div>
-        </a>
-
-        <a
-            href="/projects/portfolio"
-            class="group block rounded-md border border-neutral-200 dark:border-neutral-800 p-5 no-underline transition-colors duration-200 hover:border-neutral-400 dark:hover:border-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
-        >
-            <div class="flex items-baseline justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <h2
-                        class="text-lg font-medium text-neutral-900 dark:text-neutral-100 transition-colors duration-200 group-hover:text-blue-500 dark:group-hover:text-blue-400"
-                    >
-                        Portfolio
-                    </h2>
-                    <span
-                        aria-hidden="true"
-                        class="text-sm text-neutral-400 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transform-none"
-                        >→</span
-                    >
+                    {project.description}
+                </p>
+                <div
+                    class="mt-4 flex flex-wrap gap-x-2 gap-y-1 text-xs text-neutral-500 dark:text-neutral-400"
+                >
+                    {#each project.tech as tech, index (tech)}
+                        {#if index > 0}<span>•</span>{/if}
+                        <span>{tech}</span>
+                    {/each}
                 </div>
-                <span class="text-xs text-neutral-500 dark:text-neutral-400"
-                    >2026</span
-                >
-            </div>
-            <p
-                class="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
-            >
-                Personal website built with SvelteKit, Tailwind CSS and hosted
-                on Cloudflare Workers.
-            </p>
-            <div
-                class="mt-4 flex flex-wrap gap-x-2 gap-y-1 text-xs text-neutral-500 dark:text-neutral-400"
-            >
-                <span>TypeScript</span>
-                <span>•</span>
-                <span>SvelteKit</span>
-                <span>•</span>
-                <span>Tailwind</span>
-                <span>•</span>
-                <span>Cloudflare Workers</span>
-            </div>
-        </a>
+            </a>
+            <!-- eslint-enable svelte/no-navigation-without-resolve -->
+        {/each}
 
-        <div
-            class="flex flex-col items-center justify-center rounded-md border border-dashed border-neutral-300 dark:border-neutral-800 p-5 text-center text-sm text-neutral-500 dark:text-neutral-400 sm:col-span-2"
+        <button
+            type="button"
+            onclick={() => (revealed = true)}
+            class="flex cursor-pointer flex-col items-center justify-center rounded-md border border-dashed border-neutral-300 p-5 text-center text-sm text-neutral-500 focus-ring sm:col-span-2 dark:border-neutral-800 dark:text-neutral-400"
         >
-            <p>More projects coming soon...</p>
-        </div>
+            <span aria-live="polite"
+                >{revealed
+                    ? "Люблю Алису!!!"
+                    : "More projects coming soon..."}</span
+            >
+        </button>
     </div>
 
     <div>
-        <a
+        <Link
             href="/"
-            class="w-fit rounded-sm text-sm text-neutral-600 dark:text-neutral-400 transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
+            class="w-fit text-sm text-neutral-600 dark:text-neutral-400"
         >
             ← Back to home
-        </a>
+        </Link>
     </div>
 </main>

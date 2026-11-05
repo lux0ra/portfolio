@@ -1,21 +1,20 @@
 <script lang="ts">
+    import Link from "#lib/components/Link.svelte";
+
     let { class: className = "" }: { class?: string } = $props();
 </script>
 
 <header class={className}>
     <nav class="flex w-full flex-wrap items-center justify-between gap-4">
-        <h1 class="text-[1.0625rem] leading-5.5[1 375rem] font-normal">
-            <a
-                href="/"
-                class="rounded-sm no-underline transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400"
-                >luxora</a
-            >
-        </h1>
-        <a
+        <div class="text-[1.0625rem] leading-normal font-normal">
+            <Link href="/" class="no-underline">luxora</Link>
+        </div>
+        <Link
+            variant="muted"
             href="mailto:germiskiw@gmail.com"
-            class="min-w-0 break-all text-sm leading-5 font-normal no-underline text-neutral-600 dark:text-neutral-400 transition-colors duration-200 hover:text-neutral-900 dark:hover:text-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400"
+            class="min-w-0 text-sm leading-5 font-normal break-all no-underline"
         >
             germiskiw@gmail.com
-        </a>
+        </Link>
     </nav>
 </header>

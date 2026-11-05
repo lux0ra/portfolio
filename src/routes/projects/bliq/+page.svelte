@@ -1,103 +1,15 @@
 <script lang="ts">
+    import PageMeta from "#lib/components/PageMeta.svelte";
+    import {
+        transferNodes,
+        depositNodes,
+        technologies,
+    } from "#lib/data/bliq.ts";
+    import Link from "#lib/components/Link.svelte";
     type FlowType = "transfer" | "deposit";
-
-    interface ArchitectureNode {
-        id: string;
-        label: string;
-        sublabel: string;
-        tech: string;
-        security: string;
-        description: string;
-    }
 
     let activeFlow = $state<FlowType>("transfer");
     let selectedNodeId = $state<string>("api");
-
-    const transferNodes: ArchitectureNode[] = [
-        {
-            id: "bot",
-            label: "Discord Bot",
-            sublabel: "Interface Layer",
-            tech: "Discord.js / Node.js",
-            security:
-                "Ephemeral responses, zero private key access, user permission checks",
-            description:
-                "Receives slash commands (/profile, /withdraw) and interaction clicks. Formats the request, generates an idempotency key, and forwards payload to the Fastify API.",
-        },
-        {
-            id: "api",
-            label: "Fastify API",
-            sublabel: "Core Gateway",
-            tech: "Fastify / TypeScript",
-            security:
-                "HMAC-SHA256 request verification, timestamp drift check, rate limiting",
-            description:
-                "Validates signatures and authorization headers. Enforces idempotency via unique request tokens before passing execution to the ledger engine.",
-        },
-        {
-            id: "ledger",
-            label: "Double-Entry Ledger",
-            sublabel: "Accounting Core",
-            tech: "DrizzleORM / Pure Logic",
-            security:
-                "Double-entry invariant (Debits = Credits), negative balance prevention",
-            description:
-                "Constructs balanced journal entries for every transfer. Ensures funds are neither created nor destroyed, maintaining a strict internal audit trail.",
-        },
-        {
-            id: "db",
-            label: "PostgreSQL",
-            sublabel: "Persistence Layer",
-            tech: "PostgreSQL 16",
-            security:
-                "Atomic ACID transactions, SELECT ... FOR UPDATE row locks, unique constraints",
-            description:
-                "Executes the transfer in an atomic transaction. Locks sender and receiver rows to prevent race conditions and concurrent double-spend attempts.",
-        },
-    ];
-
-    const depositNodes: ArchitectureNode[] = [
-        {
-            id: "blockchain",
-            label: "TON Blockchain",
-            sublabel: "Decentralized Network",
-            tech: "TON / Gram Jetton",
-            security:
-                "Decentralized consensus, irreversible cryptographic block finality",
-            description:
-                "Users broadcast on-chain transfers of TON or Gram to Bliq's custodial deposit address with a unique memo assigned to their Discord account.",
-        },
-        {
-            id: "watcher",
-            label: "Deposit Watcher",
-            sublabel: "Chain Ingestion",
-            tech: "TON RPC / Indexer Worker",
-            security:
-                "Block confirmation threshold, payload parsing validation, replay defense",
-            description:
-                "Continuously polls TON RPC nodes for incoming transactions. Parses incoming comment memos to identify the recipient Discord user.",
-        },
-        {
-            id: "api",
-            label: "Fastify API",
-            sublabel: "Core Gateway",
-            tech: "Fastify / TypeScript",
-            security:
-                "Internal mTLS/bearer auth, double-credit verification against existing tx_hash",
-            description:
-                "Receives verified transaction notifications from the watcher. Confirms block depth and initiates balance crediting through the ledger.",
-        },
-        {
-            id: "db",
-            label: "PostgreSQL",
-            sublabel: "Persistence Layer",
-            tech: "PostgreSQL 16",
-            security:
-                "Unique (tx_hash, lt) index constraint, single-credit state machine",
-            description:
-                "Records the deposit record and credits the user balance in one atomic transaction. The unique constraint makes duplicate crediting mathematically impossible.",
-        },
-    ];
 
     let currentNodes = $derived(
         activeFlow === "transfer" ? transferNodes : depositNodes,
@@ -113,36 +25,29 @@
     }
 </script>
 
-<svelte:head>
-    <title>Bliq — Architecture &amp; Security</title>
-</svelte:head>
+<PageMeta
+    title="Bliq — Architecture & Security"
+    description="Explore the architecture, data flows, and security mechanisms behind Bliq, a custodial Discord wallet on TON."
+/>
 
 <main class="flex w-full min-w-0 flex-col gap-10 py-4 sm:py-0">
     <div>
-        <a
+        <Link
             href="/projects"
-            class="inline-flex items-center gap-1.5 rounded-sm text-sm text-neutral-600 dark:text-neutral-400 transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
+            class="inline-flex items-center gap-1.5 text-sm text-neutral-600 dark:text-neutral-400"
         >
             ← Back to projects
-        </a>
+        </Link>
     </div>
 
     <header class="flex flex-col gap-3">
         <div class="flex flex-wrap items-baseline justify-between gap-3">
             <div class="flex flex-wrap items-baseline gap-3">
                 <h1
-                    class="w-fit bg-linear-to-r from-[#7c3aed] to-[#2563eb] dark:from-[#a78bfa] dark:to-[#60a5fa] bg-clip-text text-3xl sm:text-4xl font-normal text-transparent"
+                    class="w-fit bg-linear-to-r from-[#7c3aed] to-[#2563eb] bg-clip-text text-3xl font-normal text-transparent sm:text-4xl dark:from-[#a78bfa] dark:to-[#60a5fa]"
                 >
                     Bliq
                 </h1>
-                <!-- <a
-                    href="https://github.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-xs text-neutral-500 dark:text-neutral-400 no-underline transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
-                >
-                    GitHub ↗
-                </a> -->
             </div>
             <span
                 class="text-xs font-normal text-amber-600 dark:text-amber-400"
@@ -163,14 +68,14 @@
 
     <section class="flex flex-col gap-3">
         <h2
-            class="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400"
+            class="font-mono text-xs tracking-wider text-neutral-500 uppercase dark:text-neutral-400"
         >
             Implementation Scope
         </h2>
 
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div
-                class="flex flex-col gap-3 rounded-md border border-neutral-200 dark:border-neutral-800 p-5"
+                class="flex flex-col gap-3 rounded-md border border-neutral-200 p-5 dark:border-neutral-800"
             >
                 <div class="flex items-center gap-2">
                     <span
@@ -234,7 +139,7 @@
             </div>
 
             <div
-                class="flex flex-col gap-3 rounded-md border border-neutral-200 dark:border-neutral-800 p-5"
+                class="flex flex-col gap-3 rounded-md border border-neutral-200 p-5 dark:border-neutral-800"
             >
                 <div class="flex items-center gap-2">
                     <span
@@ -316,14 +221,14 @@
             </div>
 
             <div
-                class="grid grid-cols-2 w-full sm:w-auto rounded-md border border-neutral-200 dark:border-neutral-800 p-0.5 text-xs"
+                class="grid w-full grid-cols-2 rounded-md border border-neutral-200 p-0.5 text-xs sm:w-auto dark:border-neutral-800"
             >
                 <button
                     type="button"
-                    class={`cursor-pointer rounded px-3 py-1.5 sm:py-1 text-center transition-colors duration-150 ${
+                    class={`cursor-pointer rounded px-3 py-1.5 text-center transition-colors duration-150 sm:py-1 ${
                         activeFlow === "transfer"
-                            ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 font-medium"
-                            : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100"
+                            ? "bg-neutral-900 font-medium text-white dark:bg-neutral-100 dark:text-neutral-900"
+                            : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
                     }`}
                     onclick={() => selectFlow("transfer")}
                 >
@@ -331,10 +236,10 @@
                 </button>
                 <button
                     type="button"
-                    class={`cursor-pointer rounded px-3 py-1.5 sm:py-1 text-center transition-colors duration-150 ${
+                    class={`cursor-pointer rounded px-3 py-1.5 text-center transition-colors duration-150 sm:py-1 ${
                         activeFlow === "deposit"
-                            ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 font-medium"
-                            : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100"
+                            ? "bg-neutral-900 font-medium text-white dark:bg-neutral-100 dark:text-neutral-900"
+                            : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
                     }`}
                     onclick={() => selectFlow("deposit")}
                 >
@@ -344,14 +249,14 @@
         </div>
 
         <div class="grid grid-cols-1 gap-2 sm:grid-cols-4">
-            {#each currentNodes as node, index}
+            {#each currentNodes as node, index (node.id)}
                 <div class="flex flex-col items-center sm:flex-row">
                     <button
                         type="button"
-                        class={`w-full text-left cursor-pointer rounded-md border p-4 transition-colors duration-150 ${
+                        class={`w-full cursor-pointer rounded-md border p-4 text-left transition-colors duration-150 ${
                             selectedNodeId === node.id
                                 ? "border-blue-500 dark:border-blue-500"
-                                : "border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-700"
+                                : "border-neutral-200 hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-700"
                         }`}
                         onclick={() => (selectedNodeId = node.id)}
                     >
@@ -374,7 +279,7 @@
 
                     {#if index < currentNodes.length - 1}
                         <span
-                            class="my-1 text-neutral-400 dark:text-neutral-600 sm:my-0 sm:mx-1.5 rotate-90 sm:rotate-0"
+                            class="my-1 rotate-90 text-neutral-400 sm:mx-1.5 sm:my-0 sm:rotate-0 dark:text-neutral-600"
                             aria-hidden="true"
                         >
                             →
@@ -386,10 +291,10 @@
 
         {#if activeNode}
             <div
-                class="flex flex-col gap-3 rounded-md border border-neutral-200 dark:border-neutral-800 p-5"
+                class="flex flex-col gap-3 rounded-md border border-neutral-200 p-5 dark:border-neutral-800"
             >
                 <div
-                    class="flex flex-wrap items-baseline justify-between gap-2 border-b border-neutral-100 dark:border-neutral-800/80 pb-3"
+                    class="flex flex-wrap items-baseline justify-between gap-2 border-b border-neutral-100 pb-3 dark:border-neutral-800/80"
                 >
                     <div class="flex items-center gap-2">
                         <span
@@ -400,23 +305,23 @@
                         <span class="text-neutral-300 dark:text-neutral-700"
                             >/</span
                         >
-                        <h4
+                        <h3
                             class="text-sm font-semibold text-neutral-900 dark:text-neutral-100"
                         >
                             {activeNode.label}
-                        </h4>
+                        </h3>
                     </div>
                     <span
-                        class="rounded bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 font-mono text-[11px] text-neutral-600 dark:text-neutral-400"
+                        class="rounded bg-neutral-100 px-2 py-0.5 font-mono text-[11px] text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400"
                     >
                         {activeNode.tech}
                     </span>
                 </div>
 
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 pt-1">
+                <div class="grid grid-cols-1 gap-4 pt-1 sm:grid-cols-2">
                     <div>
                         <span
-                            class="text-xs font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500"
+                            class="font-mono text-xs tracking-wider text-neutral-400 uppercase dark:text-neutral-500"
                         >
                             Function &amp; Role
                         </span>
@@ -428,7 +333,7 @@
                     </div>
                     <div>
                         <span
-                            class="text-xs font-mono uppercase tracking-wider text-blue-600 dark:text-blue-400"
+                            class="font-mono text-xs tracking-wider text-blue-600 uppercase dark:text-blue-400"
                         >
                             Security Boundary
                         </span>
@@ -458,7 +363,7 @@
 
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <div
-                class="flex flex-col gap-2 rounded-md border border-neutral-200 dark:border-neutral-800 p-4"
+                class="flex flex-col gap-2 rounded-md border border-neutral-200 p-4 dark:border-neutral-800"
             >
                 <span
                     class="font-mono text-xs text-neutral-400 dark:text-neutral-500"
@@ -480,7 +385,7 @@
             </div>
 
             <div
-                class="flex flex-col gap-2 rounded-md border border-neutral-200 dark:border-neutral-800 p-4"
+                class="flex flex-col gap-2 rounded-md border border-neutral-200 p-4 dark:border-neutral-800"
             >
                 <span
                     class="font-mono text-xs text-neutral-400 dark:text-neutral-500"
@@ -502,7 +407,7 @@
             </div>
 
             <div
-                class="flex flex-col gap-2 rounded-md border border-neutral-200 dark:border-neutral-800 p-4"
+                class="flex flex-col gap-2 rounded-md border border-neutral-200 p-4 dark:border-neutral-800"
             >
                 <span
                     class="font-mono text-xs text-neutral-400 dark:text-neutral-500"
@@ -518,7 +423,7 @@
                     class="text-xs leading-relaxed text-neutral-600 dark:text-neutral-400"
                 >
                     Transfers use database-level atomic blocks (<code
-                        class="rounded bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5 font-mono text-[11px]"
+                        class="rounded bg-neutral-100 px-1 py-0.5 font-mono text-[11px] dark:bg-neutral-800"
                         >SELECT ... FOR UPDATE</code
                     >) preventing concurrency anomalies and partial state
                     commits.
@@ -526,7 +431,7 @@
             </div>
 
             <div
-                class="flex flex-col gap-2 rounded-md border border-neutral-200 dark:border-neutral-800 p-4"
+                class="flex flex-col gap-2 rounded-md border border-neutral-200 p-4 dark:border-neutral-800"
             >
                 <span
                     class="font-mono text-xs text-neutral-400 dark:text-neutral-500"
@@ -548,7 +453,7 @@
             </div>
 
             <div
-                class="flex flex-col gap-2 rounded-md border border-neutral-200 dark:border-neutral-800 p-4"
+                class="flex flex-col gap-2 rounded-md border border-neutral-200 p-4 dark:border-neutral-800"
             >
                 <span
                     class="font-mono text-xs text-neutral-400 dark:text-neutral-500"
@@ -571,7 +476,7 @@
             </div>
 
             <div
-                class="flex flex-col gap-2 rounded-md border border-neutral-200 dark:border-neutral-800 p-4"
+                class="flex flex-col gap-2 rounded-md border border-neutral-200 p-4 dark:border-neutral-800"
             >
                 <span
                     class="font-mono text-xs text-neutral-400 dark:text-neutral-500"
@@ -587,11 +492,11 @@
                     class="text-xs leading-relaxed text-neutral-600 dark:text-neutral-400"
                 >
                     TON on-chain deposits are guarded by unique constraints on <code
-                        class="rounded bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5 font-mono text-[11px]"
+                        class="rounded bg-neutral-100 px-1 py-0.5 font-mono text-[11px] dark:bg-neutral-800"
                         >tx_hash</code
                     >
                     and logical time (<code
-                        class="rounded bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5 font-mono text-[11px]"
+                        class="rounded bg-neutral-100 px-1 py-0.5 font-mono text-[11px] dark:bg-neutral-800"
                         >lt</code
                     >), making duplicate crediting impossible.
                 </p>
@@ -604,9 +509,9 @@
             Tech Stack
         </h2>
         <div class="flex flex-wrap gap-2 text-xs">
-            {#each ["TypeScript", "SvelteKit", "Fastify", "DrizzleORM", "PostgreSQL", "Docker", "Discord.js", "TON Blockchain", "Gram Token"] as tech}
+            {#each technologies as tech (tech)}
                 <span
-                    class="rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-100/60 dark:bg-neutral-900/60 px-3 py-1.5 text-neutral-700 dark:text-neutral-300"
+                    class="rounded-md border border-neutral-200 bg-neutral-100/60 px-3 py-1.5 text-neutral-700 dark:border-neutral-800 dark:bg-neutral-900/60 dark:text-neutral-300"
                 >
                     {tech}
                 </span>

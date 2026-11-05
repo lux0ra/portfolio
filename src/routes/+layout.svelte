@@ -1,6 +1,6 @@
 <script lang="ts">
     import "./layout.css";
-    import { onMount } from "svelte";
+    import { onDestroy } from "svelte";
     import { afterNavigate } from "$app/navigation";
     import Navbar from "#lib/components/Navbar.svelte";
     import Footer from "#lib/components/Footer.svelte";
@@ -9,14 +9,6 @@
 
     let { children }: LayoutProps = $props();
 
-    const titles = [
-        "luxora.exe is vibing (vibecoding)",
-        "Я люблю Алису!!",
-        "404: sleep not found",
-        "just one more commit...",
-    ];
-
-    let titleIndex = $state(0);
     let content = $state<HTMLDivElement>();
     let entrance: Animation | undefined;
 
@@ -38,22 +30,11 @@
         );
     });
 
-    onMount(() => {
-        const timer = setInterval(() => {
-            if (document.hidden) return;
-            titleIndex = (titleIndex + 1) % titles.length;
-        }, 3000);
-
-        return () => {
-            clearInterval(timer);
-            entrance?.cancel();
-        };
-    });
+    onDestroy(() => entrance?.cancel());
 </script>
 
 <svelte:head>
     <link rel="icon" href={favicon} />
-    <title>{titles[titleIndex]}</title>
 </svelte:head>
 
 <div class="px-5">

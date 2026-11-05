@@ -3,8 +3,8 @@
     "compilerOptions": {
         "strict": true,
         "allowJs": false,
-        "checkJs": false,
+        "checkJs": false
     },
     "include": ["src", "test", "*"],
-    "exclude": ["src/service-worker"],
+    "exclude": ["src/service-worker"]
 }

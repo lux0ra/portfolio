@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Link from "#lib/components/Link.svelte";
     import ConfettiBurst from "./ConfettiBurst.svelte";
 
     let { class: className = "" }: { class?: string } = $props();
@@ -16,23 +17,21 @@
 </script>
 
 <footer
-    class={`w-full border-t border-neutral-300 dark:border-neutral-800 pt-4 ${className}`}
+    class={`w-full border-t border-neutral-300 pt-4 dark:border-neutral-800 ${className}`}
 >
     <div
         class="flex flex-col items-start gap-3 text-[14px] sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-6"
     >
         <p>
-            <a
-                href="/license"
-                class="rounded-sm transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
+            <Link href="/license"
                 >&copy; 2026 luxora &middot; Designed with &hearts;&#xfe0f; by
-                me!</a
+                me!</Link
             >
         </p>
         <button
             type="button"
             aria-label="Available for work — celebrate with confetti"
-            class="flex cursor-pointer items-center gap-2 rounded-sm text-neutral-500 dark:text-neutral-400 transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500 dark:focus-visible:outline-blue-400 motion-reduce:transition-none"
+            class="flex cursor-pointer items-center gap-2 rounded-sm text-neutral-500 focus-ring transition-colors duration-200 hover:text-blue-500 motion-reduce:transition-none dark:text-neutral-400 dark:hover:text-blue-400"
             onclick={celebrate}
         >
             Available for work

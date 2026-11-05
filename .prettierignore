@@ -1,0 +1,7 @@
+node_modules
+.svelte-kit
+.wrangler
+build
+worker-configuration.d.ts
+README.md
+src/lib/assets
