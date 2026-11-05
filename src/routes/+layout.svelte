@@ -13,6 +13,7 @@
     let entrance: Animation | undefined;
 
     afterNavigate(({ from, to }) => {
+        if (!from) return;
         if (from?.url.pathname === to?.url.pathname) return;
         entrance?.cancel();
         if (
@@ -40,11 +41,14 @@
 <div class="px-5">
     <div class="mx-auto flex min-h-dvh w-full max-w-7xl flex-col gap-8 py-6">
         <Navbar class="shrink-0 motion-safe:animate-(--reveal)" />
-        <div bind:this={content} class="flex min-w-0 flex-1 items-center">
+        <div
+            bind:this={content}
+            class="flex min-w-0 flex-1 items-center motion-safe:animate-(--reveal) motion-safe:[animation-delay:50ms]"
+        >
             {@render children()}
         </div>
         <Footer
-            class="shrink-0 motion-safe:animate-(--reveal) motion-safe:[animation-delay:160ms]"
+            class="shrink-0 motion-safe:animate-(--reveal) motion-safe:[animation-delay:100ms]"
         />
     </div>
 </div>

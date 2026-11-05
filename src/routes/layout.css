@@ -2,7 +2,8 @@
 @import "@fontsource-variable/geist";
 
 @theme {
-    --font-sans: -apple-system, BlinkMacSystemFont, "Geist", sans-serif;
+    --font-sans:
+        -apple-system, BlinkMacSystemFont, "Geist Variable", sans-serif;
 }
 
 :root {
@@ -10,7 +11,7 @@
     color: var(--color-neutral-900, #171717);
     background-color: #fff;
     color-scheme: light dark;
-    --reveal: reveal 600ms ease-out both;
+    --reveal: reveal 400ms ease-out both;
 
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
