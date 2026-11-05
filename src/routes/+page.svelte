@@ -48,17 +48,17 @@
                     <Link
                         href="https://discord.com/users/648181203257655296"
                         title="Discord: @lux0ra"
-                        class="w-fit no-underline focus-visible:text-blue-500 dark:focus-visible:text-blue-400"
+                        class="w-fit focus-visible:text-blue-500 dark:focus-visible:text-blue-400"
                         >Discord (@lux0ra)</Link
                     >
                     <Link
                         href="https://t.me/lux0ra"
-                        class="w-fit no-underline focus-visible:text-blue-500 dark:focus-visible:text-blue-400"
+                        class="w-fit focus-visible:text-blue-500 dark:focus-visible:text-blue-400"
                         >Telegram</Link
                     >
                     <Link
                         href="https://github.com/lux0ra"
-                        class="w-fit no-underline focus-visible:text-blue-500 dark:focus-visible:text-blue-400"
+                        class="w-fit focus-visible:text-blue-500 dark:focus-visible:text-blue-400"
                         >Github</Link
                     >
                 </div>
@@ -72,7 +72,7 @@
                 <div class="mt-2 flex flex-col gap-2 text-base leading-6">
                     <Link
                         href="/projects"
-                        class="w-fit no-underline focus-visible:text-blue-500 dark:focus-visible:text-blue-400"
+                        class="w-fit focus-visible:text-blue-500 dark:focus-visible:text-blue-400"
                         >Projects</Link
                     >
                 </div>
@@ -86,7 +86,7 @@
                 <div class="mt-2 flex flex-col gap-2 text-base leading-6">
                     <Link
                         href="https://t.me/send?start=IVjqHxTD19N1"
-                        class="w-fit no-underline focus-visible:text-blue-500 dark:focus-visible:text-blue-400"
+                        class="w-fit focus-visible:text-blue-500 dark:focus-visible:text-blue-400"
                         >@CryptoBot</Link
                     >
                 </div>

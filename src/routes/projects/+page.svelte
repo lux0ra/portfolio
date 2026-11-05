@@ -28,7 +28,7 @@
             <!-- eslint-disable svelte/no-navigation-without-resolve -->
             <a
                 href={`/projects/${project.slug}`}
-                class="group block rounded-md border border-neutral-200 p-5 no-underline focus-ring transition-colors duration-200 hover:border-neutral-400 motion-reduce:transition-none dark:border-neutral-800 dark:hover:border-neutral-700"
+                class="group block rounded-md border border-neutral-200 p-5 focus-ring transition-colors duration-200 hover:border-neutral-400 motion-reduce:transition-none dark:border-neutral-800 dark:hover:border-neutral-700"
             >
                 <div class="flex items-baseline justify-between gap-2">
                     <div class="flex items-center gap-2">

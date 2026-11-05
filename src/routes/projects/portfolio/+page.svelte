@@ -29,7 +29,7 @@
                 </h1>
                 <Link
                     href="https://github.com/lux0ra/portfolio"
-                    class="text-xs text-neutral-500 no-underline dark:text-neutral-400"
+                    class="text-xs text-neutral-500 dark:text-neutral-400"
                 >
                     GitHub ↗
                 </Link>
