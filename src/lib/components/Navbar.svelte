@@ -11,10 +11,10 @@
         </div>
         <Link
             variant="muted"
-            href="mailto:me@luxora.lol"
+            href="mailto:germiskiw@gmail.com"
             class="min-w-0 text-sm leading-5 font-normal break-all"
         >
-            me@luxora.lol
+            germiskiw@gmail.com
         </Link>
     </nav>
 </header>
