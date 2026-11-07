@@ -8,7 +8,7 @@
 
 <PageMeta
     title="Projects — luxora"
-    description="Explore luxora's projects, from a Discord crypto wallet to this SvelteKit portfolio."
+    description="Explore luxora's projects: Crosy for macOS, a Discord crypto wallet, and this SvelteKit portfolio."
 />
 
 <main class="flex w-full min-w-0 flex-col gap-8 py-4 sm:py-0">
