@@ -30,7 +30,7 @@
     description="Explore the architecture, data flows, and security mechanisms behind Bliq, a custodial Discord wallet on TON."
 />
 
-<main class="flex w-full min-w-0 flex-col gap-10 py-4 sm:py-0">
+<main class="flex w-full min-w-0 flex-col gap-10 self-start py-4 sm:py-0">
     <div>
         <Link
             href="/projects"

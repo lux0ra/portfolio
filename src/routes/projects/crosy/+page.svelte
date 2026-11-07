@@ -9,7 +9,7 @@
     description="A lightweight crosshair overlay for macOS, built with Swift and AppKit. Customize your crosshair and download Crosy for Apple Silicon and Intel."
 />
 
-<main class="flex w-full min-w-0 flex-col gap-8 py-4 sm:py-0">
+<main class="flex w-full min-w-0 flex-col gap-8 self-start py-4 sm:py-0">
     <div>
         <Link
             href="/projects"
@@ -41,8 +41,11 @@
         <p
             class="max-w-3xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400"
         >
-            A lightweight crosshair overlay for macOS. Pick a shape, fine-tune
-            its appearance, and get back to your game.
+            A lightweight crosshair overlay for macOS that stays above your apps
+            and lets mouse clicks pass through. Choose a shape, adjust its
+            appearance with a live preview, and select which displays to use.
+            Control the overlay from the menu bar; your preferences are saved
+            between launches.
         </p>
         <p class="text-sm text-neutral-500 dark:text-neutral-400">
             AI was used in this project.
@@ -80,25 +83,6 @@
             with exclusive fullscreen rendering may hide the overlay; try a
             borderless window.
         </p>
-    </section>
-
-    <section class="flex flex-col gap-3">
-        <h2 class="text-xl font-normal text-neutral-900 dark:text-neutral-100">
-            Overview
-        </h2>
-        <div
-            class="rounded-md border border-neutral-200 p-5 text-sm leading-relaxed text-neutral-600 dark:border-neutral-800 dark:text-neutral-400"
-        >
-            <p>
-                Crosy puts a customizable crosshair at the center of your
-                screen, above your apps, without intercepting mouse clicks.
-                Built with native macOS frameworks and no third-party
-                dependencies, it combines a live settings preview with quick
-                menu bar controls. A command-line mode lets you launch the
-                overlay with temporary settings without changing your saved
-                preferences.
-            </p>
-        </div>
     </section>
 
     <section class="flex flex-col gap-3">

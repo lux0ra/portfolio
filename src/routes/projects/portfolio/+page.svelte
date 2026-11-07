@@ -9,7 +9,7 @@
     description="How this portfolio works: SvelteKit, Svelte 5, Tailwind CSS, accessible interactions, and Cloudflare Workers."
 />
 
-<main class="flex w-full min-w-0 flex-col gap-8 py-4 sm:py-0">
+<main class="flex w-full min-w-0 flex-col gap-8 self-start py-4 sm:py-0">
     <div>
         <Link
             href="/projects"
