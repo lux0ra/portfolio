@@ -12,8 +12,8 @@ export const projects: Project[] = [
         slug: "crosy",
         name: "Crosy",
         description:
-            "Lightweight crosshair overlay for macOS, built with Swift.",
-        tech: ["Swift", "AppKit", "Core Graphics"],
+            "Lightweight crosshair overlay for macOS with a native SwiftUI editor.",
+        tech: ["Swift", "SwiftUI", "AppKit", "Core Graphics"],
         year: 2026,
     },
     {

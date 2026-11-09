@@ -1,12 +1,12 @@
 <script lang="ts">
     import PageMeta from "#lib/components/PageMeta.svelte";
     import Link from "#lib/components/Link.svelte";
-    import { downloadUrl, technologies } from "#lib/data/crosy.ts";
+    import { downloadUrl, releaseUrl, technologies } from "#lib/data/crosy.ts";
 </script>
 
 <PageMeta
     title="Crosy — luxora"
-    description="A lightweight crosshair overlay for macOS, built with Swift and AppKit. Customize your crosshair and download Crosy for Apple Silicon and Intel."
+    description="A lightweight crosshair overlay for macOS, built with SwiftUI and AppKit. Customize your crosshair and download Crosy for Apple Silicon and Intel."
 />
 
 <main class="flex w-full min-w-0 flex-col gap-8 self-start py-4 sm:py-0">
@@ -43,9 +43,9 @@
         >
             A lightweight crosshair overlay for macOS that stays above your apps
             and lets mouse clicks pass through. Choose a shape, adjust its
-            appearance with a live preview, and select which displays to use.
-            Control the overlay from the menu bar; your preferences are saved
-            between launches.
+            appearance in a native SwiftUI editor with a live preview, and
+            select which displays to use. Control the overlay from the menu bar;
+            your preferences are saved between launches.
         </p>
         <p class="text-sm text-neutral-500 dark:text-neutral-400">
             AI was used in this project.
@@ -68,11 +68,7 @@
             <Link href={downloadUrl} variant="accent" class="w-fit">
                 Download for macOS ↓
             </Link>
-            <Link
-                href="https://github.com/lux0ra/crosy/releases/latest"
-                variant="muted"
-                class="w-fit"
-            >
+            <Link href={releaseUrl} variant="muted" class="w-fit">
                 Release notes ↗
             </Link>
         </div>
